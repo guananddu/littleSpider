@@ -10,9 +10,9 @@ define( function ( require ) {
             title: {
                 text: 'XRP / 美元（每 1 美元值多少 XRP）'
             },
-            // subtitle: {
-            //     text: ''
-            // },
+            subtitle: {
+                text: 'Data From Bitstamp Gateway.'
+            },
             xAxis: {
                 type: 'value'
             },
@@ -55,9 +55,9 @@ define( function ( require ) {
             title: {
                 text: '人民币 / XRP（每 XRP 值多少人民币）'
             },
-            // subtitle: {
-            //     text: ''
-            // },
+            subtitle: {
+                text: 'Data From RippleChina Gateway.'
+            },
             xAxis: {
                 type: 'value'
             },
@@ -96,9 +96,9 @@ define( function ( require ) {
             title: {
                 text: '人民币 / XRP（每 XRP 值多少人民币）'
             },
-            // subtitle: {
-            //     text: ''
-            // },
+            subtitle: {
+                text: 'Data From RippleCN Gateway.'
+            },
             xAxis: {
                 type: 'value'
             },
