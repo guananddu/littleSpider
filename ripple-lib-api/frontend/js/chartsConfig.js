@@ -8,7 +8,7 @@ define( function ( require ) {
                 zoomType: 'xy'
             },
             title: {
-                text: '美元/XRP'
+                text: 'XRP / 美元（每 1 美元值多少 XRP）'
             },
             // subtitle: {
             //     text: ''
@@ -27,6 +27,22 @@ define( function ( require ) {
                         return '<b>' + this.series.name + '</b><br />' +
                             this.y +' xrp<br />' + 
                             this.key;
+                }/*,
+                tooltip: {
+                    shared: true
+                }*/
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    marker: {
+                        enabled: false,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
                 }
             }
         },
@@ -37,7 +53,7 @@ define( function ( require ) {
                 zoomType: 'xy'
             },
             title: {
-                text: 'XRP/人民币（ripplechina）'
+                text: '人民币 / XRP（每 XRP 值多少人民币）'
             },
             // subtitle: {
             //     text: ''
@@ -56,6 +72,19 @@ define( function ( require ) {
                             this.y +' cny<br />' + 
                             this.key;
                 }
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    marker: {
+                        enabled: false,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
             }
         },
 
@@ -65,7 +94,7 @@ define( function ( require ) {
                 zoomType: 'xy'
             },
             title: {
-                text: 'XRP/人民币（ripplecn）'
+                text: '人民币 / XRP（每 XRP 值多少人民币）'
             },
             // subtitle: {
             //     text: ''
@@ -83,6 +112,19 @@ define( function ( require ) {
                         return '<b>'+ this.series.name +'</b><br />'+
                             this.y +' cny<br />' + 
                             this.key;
+                }
+            },
+            plotOptions: {
+                series: {
+                    lineWidth: 2,
+                    marker: {
+                        enabled: false,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
                 }
             }
         }

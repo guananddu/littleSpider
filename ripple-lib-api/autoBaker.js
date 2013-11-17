@@ -20,24 +20,47 @@ exports.run = function ( max ) {
 
             if ( results.length >= max ) {
 
+                var name = ( new Date() ).toFormat( 'YYYY-MM-DD-HH-MI-SS-P' );
                 var comm = mongoc.bindir 
                     + '/mongodump '
                     + '-h "' + mongoc.host + ':' + mongoc.port + '" '
                     + '-d "' + mongoc.dbs + '" '
                     + '-o "' +  mongoc.bakdir
                     + '/'
-                    + ( new Date() ).toFormat( 'YYYY-MM-DD-HH-MI-SS-P' ) + '"';
+                    + name + '"';
+
+                var restoreComm = mongoc.bindir
+                    + '/mongorestore '
+                    + '-h "' + mongoc.host + ':' + mongoc.port + '" '
+                    + '-d "' + mongoc.bakdbs + '" '
+                    + '--directoryperdb "' 
+                    + mongoc.bakdir 
+                    + '/' 
+                    + name + '"';
 
                 child = exec( comm,
-                    function (error, stdout, stderr) {
+                    function ( error, stdout, stderr ) {
                         console.log('stdout: ' + stdout);
                         console.log('stderr: ' + stderr);
                         if (error !== null) {
-                        console.log('exec error: ' + error);
+                            console.log('exec error: ' + error);
+                        }
 
-                        require( './removeall' ).run();
+                        // require( 'fs' ).writeFile( 'commmmm', restoreComm );
+
+                        // exec( restoreComm, function ( error, stdout, stderr ) {
+
+                        //     console.log('stdout: ' + stdout);
+                        //     console.log('stderr: ' + stderr);
+                        //     if (error !== null) {
+                        //         console.log('exec error: ' + error);
+                        //     }
+
+                            require( './removeall' ).run();
+
+                        // } );
                     }
-                });
+                );
 
             }
 
