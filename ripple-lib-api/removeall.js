@@ -7,21 +7,25 @@ var target = 'mongodb://'
                 + config.host + ':' 
                 + config.port + '/' 
                 + config.dbs;
-                
-MongoClient.connect( target, function ( err, db ) {
-    if ( err ) throw err;
 
-    for ( var key in config.collections ) {
+exports.run = function () {
 
-        db
-            .collection( config.collections[ key ] )
-            .remove( {}, function ( err, numberOfRemovedDocs ) {
-                    if ( err ) throw err;
-                    console.log( 'remove all!' );
-                } );
+    MongoClient.connect( target, function ( err, db ) {
+        if ( err ) throw err;
 
-    }
+        for ( var key in config.collections ) {
 
-    db.close();    
+            db
+                .collection( config.collections[ key ] )
+                .remove( {}, function ( err, numberOfRemovedDocs ) {
+                        if ( err ) throw err;
+                        console.log( 'remove all!' );
+                    } );
 
-} );
+        }
+
+        db.close();    
+
+    } );
+
+};

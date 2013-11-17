@@ -34,6 +34,8 @@ exports.run = function ( max ) {
                         console.log('stderr: ' + stderr);
                         if (error !== null) {
                         console.log('exec error: ' + error);
+
+                        require( './removeall' ).run();
                     }
                 });
 
