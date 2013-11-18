@@ -73,7 +73,7 @@ function bidsCall ( err, res, type ) {
 
         );
 
-        fs.appendFile( file, 
+        fs.appendFileSync( file, 
             addr + ' wanna buy : ' + a + ' XRP, ' + b + ' CNY / XRP. \n' );
     }
 
@@ -146,7 +146,7 @@ function asksCall ( err, res, type ) {
 
         );
 
-        fs.appendFile( file, 
+        fs.appendFileSync( file, 
             addr + ' wanna sell : ' + a + ' XRP, ' + b + ' CNY / XRP. \n' );
     }
 

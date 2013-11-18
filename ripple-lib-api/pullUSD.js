@@ -51,7 +51,7 @@ function bidsCall ( err, res ) {
 
         } );
 
-        fs.appendFile( file, 
+        fs.appendFileSync( file, 
             addr + ' wanna buy : ' + pays + ' USD, ' + gets + ' XRP / USD. \n' );
     }
 
@@ -105,7 +105,7 @@ function asksCall ( err, res ) {
 
         } );
 
-        fs.appendFile( file, 
+        fs.appendFileSync( file, 
             addr + ' wanna sell ' + gets + ' USD, ' + pays + ' XRP / USD. \n' );
     }
 
