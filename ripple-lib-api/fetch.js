@@ -10,7 +10,7 @@ var interval = args[ 2 ]
     ? args[ 2 ] * 1000
     : 10 * 60 * 1000;
 
-var bakerMax = 900;
+var bakerMax = 950;
 
 require( 'date-utils' );
 require( './browsersocket' );

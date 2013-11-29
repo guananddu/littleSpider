@@ -15,7 +15,7 @@ exports.setBSocket = function ( socket ) {
         MongoClient.connect( target, function ( err, db ) {
             if ( err ) throw err;
             var collection = db.collection( data.type );
-            collection.find().toArray( function ( err, results ) {
+            collection.find().sort( { _id: 1 } ).toArray( function ( err, results ) {
 
                 bsocket 
                     && bsocket.emit( 'DONE', { list: results, type: data.type } );
@@ -52,7 +52,7 @@ exports.set = function ( section ) {
                     //     console.log(format("count = %s", count));
                     // } );
                     // Locate all the entries using find
-                    collection.find().toArray( function ( err, results ) {
+                    collection.find().sort( { _id: 1 } ).toArray( function ( err, results ) {
                         bsocket 
                             && bsocket.emit( 'DONE', { list: results, type: type } );
                         db.close();

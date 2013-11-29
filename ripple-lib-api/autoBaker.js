@@ -10,7 +10,7 @@ var target = 'mongodb://'
             + mongoc.port + '/' 
             + mongoc.dbs;
 
-exports.run = function ( max ) {
+exports.run = function ( max, func ) {
 
     MongoClient.connect( target, function ( err, db ) {
         if ( err ) throw err;
@@ -57,6 +57,8 @@ exports.run = function ( max ) {
                         //     }
 
                             require( './removeall' ).run();
+
+                            func && func();
 
                         // } );
                     }
